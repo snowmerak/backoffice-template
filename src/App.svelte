@@ -6,6 +6,7 @@
     import Counter from "./lib/page/Counter.svelte";
     import Index from "./lib/page/Index.svelte";
     import Login from "./lib/page/Login.svelte";
+    import {afterUpdate} from "svelte";
 
     let openSidebar = false;
     let activeId = "/";
@@ -21,6 +22,10 @@
         "/login": Login,
         "/counter": Counter,
     };
+
+    afterUpdate(() => {
+        console.log("after update");
+    });
 
     const onRouteChange = (id) => {
         if (id !== "" && id !== undefined && id !== null) {
