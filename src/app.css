@@ -1,0 +1,81 @@
+html,
+body,
+#app {
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.header {
+    grid-area: header;
+    z-index: 1
+}
+
+.main {
+    grid-area: main;
+    z-index: 1
+}
+
+.sidebar {
+    grid-area: sidebar;
+    z-index: 2
+}
+
+.other {
+    grid-area: other;
+    z-index: 1
+}
+
+.closed_drawer {
+    left: -300px;
+}
+
+.opened_drawer {
+    left: 0;
+}
+
+@media (min-width: 768px) {
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .grid {
+        display: grid;
+        grid: "header header header" 50px "sidebar main main" 200px / 200px auto;
+    }
+
+    .drawer-button {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: flex-end;
+        justify-content: end;
+    }
+
+    .drawer {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 300px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding: 20px;
+        -webkit-overflow-scrolling: touch;
+        background-color: lightgray;
+    }
+}
+
